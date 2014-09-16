@@ -1,0 +1,23 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.btn-availability {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0d0;
+  display: block;
+
+  &[data-state=na] {
+    background: red;
+  }
+  &[data-state=na-am] {
+    background: linear-gradient(to right, red 0%, red 50%, green 51%, green 100%);
+  }
+  &[data-state=na-pm] {
+    background: linear-gradient(to right, green 0%, green 50%, red 51%, red 100%);
+  }
+}
+
