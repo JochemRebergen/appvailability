@@ -4,14 +4,19 @@ angular.module('appvailabilityApp')
   .directive('availabilityToggle', function () {
     return {
     	replace: true,
-      template: '<span data-state=""></span>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        
-     	//    element.on('click', function() {
-			// 			element.setAttribute('data-state', 'na');
-     	//    });
-      
+      templateUrl: 'views/templates/toggle-availability.html',
+      restrict: 'A',
+      scope: {
+        newState: '='
+      },
+      link: function postLink(scope, element) {
+        element.attr('data-state', scope.newState);
+        scope.toggle = function(){
+          switch(scope.newState) {
+            case 'available': scope.newState = 'not-available';
+          }
+          element.attr('data-state', scope.newState);
+        };
       }
     };
   });
