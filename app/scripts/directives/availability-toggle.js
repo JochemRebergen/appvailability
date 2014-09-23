@@ -13,7 +13,18 @@ angular.module('appvailabilityApp')
         element.attr('data-state', scope.newState);
         scope.toggle = function(){
           switch(scope.newState) {
-            case 'available': scope.newState = 'not-available';
+            case 'available':
+              scope.newState = 'not-available';
+              break;
+            case 'not-available':
+              scope.newState = 'not-available-am';
+              break;
+            case 'not-available-am':
+              scope.newState = 'not-available-pm';
+              break;
+            case 'not-available-pm':
+              scope.newState = 'available';
+              break;
           }
           element.attr('data-state', scope.newState);
         };

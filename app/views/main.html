@@ -1,8 +1,8 @@
 <h2>Overview</h2>
 
-<ul class="list-group">
-  <!-- ng-repeat -->
-  <li class="list-group-item">
-    <span availability-toggle new-state="overviewCtrl.availability"></span>
+<ul class="bullets">
+  <li class="bullet" ng-repeat="user in overviewCtrl.users">
+    <span>{{user.name}}</span>
+    <span ng-repeat="availability in user.availability" availability-toggle new-state="overviewCtrl.availability"></span>
   </li>
 </ul>
