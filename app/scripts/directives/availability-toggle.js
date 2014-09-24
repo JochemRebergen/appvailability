@@ -6,12 +6,13 @@ angular.module('appvailabilityApp')
     	replace: true,
       templateUrl: 'views/templates/toggle-availability.html',
       restrict: 'A',
-      scope: {
-        newState: '='
+      scope: { // public members of isolated directive scope 
+        newState: '=', // Two way data-binding for e.g. vars
+        stateUpdated: '&' // Functional data-binding e.g. function(){}
       },
       link: function postLink(scope, element) {
         element.attr('data-state', scope.newState);
-        scope.toggle = function(){
+        scope.toggle = function(){ //Toggle in isolated directive scope
           switch(scope.newState) {
             case 'available':
               scope.newState = 'not-available';
@@ -27,6 +28,8 @@ angular.module('appvailabilityApp')
               break;
           }
           element.attr('data-state', scope.newState);
+
+          scope.stateUpdated();
         };
       }
     };

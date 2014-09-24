@@ -3,6 +3,6 @@
 <ul class="bullets">
   <li class="bullet" ng-repeat="user in overviewCtrl.users">
     <span>{{user.name}}</span>
-    <span ng-repeat="availability in user.availability" availability-toggle new-state="overviewCtrl.availability"></span>
+    <span ng-repeat="dailystate in user.availability" state-updated="overviewCtrl.saveState()" availability-toggle new-state="dailystate.state"></span>
   </li>
 </ul>
