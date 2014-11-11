@@ -3,7 +3,7 @@
 angular.module('appvailabilityApp')
   .directive('availabilityToggle', function () {
     return {
-    	replace: true,
+      replace: true,
       templateUrl: 'views/templates/toggle-availability.html',
       restrict: 'A',
       scope: { // public members of isolated directive scope 
