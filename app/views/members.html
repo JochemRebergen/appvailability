@@ -1,7 +1,7 @@
 <h2>Members</h2>
 
 <ul ng-init="membersCtrl.init()">
-  <li ng-repeat="user in membersCtrl.users">
+  <li ng-repeat="user in membersCtrl.users track by $index">
     <span ng-bind="user.name"></span>
     <button ng-click="membersCtrl.deleteUser(user)">delete</button>
   </li>

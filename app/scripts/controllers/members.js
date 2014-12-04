@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('appvailabilityApp')
-  .controller('MembersCtrl', function (dataService) {
+  .controller('MembersCtrl', function (dataService, $filter) {
     var self = this;
 
     self.init = function() {
@@ -20,8 +20,13 @@ angular.module('appvailabilityApp')
         user.availability.push({ state: 'available' });        
       }
 
-      // push new 
+      // push new
+      
       self.users.push(user);
+
+      // ordering by filter
+      var orderBy = $filter('orderBy');
+      self.users = orderBy(self.users, 'name');
 
       // save
       dataService.setData(self.users);

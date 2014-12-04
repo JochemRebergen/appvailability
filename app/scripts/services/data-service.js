@@ -8,7 +8,7 @@ angular.module('appvailabilityApp')
     };
 
     this.getData = function() {
-      return localStorageService.get('appvailability-data');
+      var data = localStorageService.get('appvailability-data');
+      return angular.isObject(data) ? data : [];
     };
-
   });
