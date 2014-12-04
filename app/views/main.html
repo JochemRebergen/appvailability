@@ -1,8 +1,8 @@
 <h2>Overview</h2>
 
-<ul class="bullets">
+<ul class="bullets" ng-init="overviewCtrl.init()">
   <li class="bullet" ng-repeat="user in overviewCtrl.users">
-    <span>{{user.name}}</span>
+    <span ng-bind="user.name"></span>
     <span ng-repeat="dailystate in user.availability" state-updated="overviewCtrl.saveState()" availability-toggle new-state="dailystate.state"></span>
   </li>
 </ul>

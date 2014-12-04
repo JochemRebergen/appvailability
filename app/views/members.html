@@ -1,2 +1,12 @@
 <h2>Members</h2>
-<p>This is the about view.</p>
+
+<ul ng-init="membersCtrl.init()">
+  <li ng-repeat="user in membersCtrl.users">
+    <span ng-bind="user.name"></span>
+    <button ng-click="membersCtrl.deleteUser(user)">delete</button>
+  </li>
+</ul>
+
+<form ng-submit="membersCtrl.addUser()">
+  <input type="text" ng-model="membersCtrl.newUser" /><button type="submit">Add</button>
+</form>
